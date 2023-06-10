@@ -1,4 +1,4 @@
-##### TL is a translation tool for language convert
+## TL is a translation tool for language convert
 
 ---
 
