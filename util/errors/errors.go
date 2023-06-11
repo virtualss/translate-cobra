@@ -2,6 +2,15 @@ package errors
 
 import "fmt"
 
+type TranslateResp struct {
+	Code   string
+	Reason string
+}
+
+func (t TranslateResp) Error() string {
+	return fmt.Sprintf("Translate Fail With Code: [%s] , Reason: [%s]\n", t.Code, t.Reason)
+}
+
 type Domain struct {
 	//error
 	Field string

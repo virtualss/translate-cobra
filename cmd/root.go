@@ -25,10 +25,9 @@ var rootCmd = &cobra.Command{
 	Short: "tl is a CLI for translate",
 	Long:  `A translate tool provide translate capability power by baidu translate api`,
 	Run: func(cmd *cobra.Command, args []string) {
-		// TODO root cmd
 		trimStr := strings.TrimSpace(q)
-		pkg.DoRequest(trimStr, translateCfg)
-		//fmt.Println("run", args)
+		err := pkg.DoBaiduReq(trimStr, translateCfg)
+		cobra.CheckErr(err)
 	},
 }
 
