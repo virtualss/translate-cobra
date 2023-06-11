@@ -32,6 +32,7 @@ func DoRequest(q string, cfg *types.TranslateConfig) {
 	escape := url.PathEscape(queryParams)
 
 	parseURL, _ := url.Parse(requestURL + escape)
+
 	log.Println("parseURL url:", parseURL)
 
 	request := &http.Request{URL: parseURL, Header: headers}
@@ -47,6 +48,6 @@ func DoRequest(q string, cfg *types.TranslateConfig) {
 	if e != nil {
 		log.Fatalln("e", e)
 	}
-	log.Println("all is:", string(all))
+	log.Println("response is:", string(all))
 
 }

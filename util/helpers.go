@@ -37,7 +37,7 @@ func (r *ConfigReadChain) ProcessRead() *os.File {
 	}
 }
 
-// CfgRead read from `CLI -> ./tl.json -> homedir`
+// CfgRead read from `CLI -> ./tl.json -> homedir/tl.json`
 func CfgRead(cfg string) (*types.TranslateConfig, error) {
 	chain := &ConfigReadChain{
 		// cli
@@ -76,7 +76,7 @@ func ValueCheck(config *types.TranslateConfig) error {
 
 	// language FROM TO check
 	if !types.Languages.Support(supportDomain, config.From, config.To) {
-		return utilerrors.FromTo{From: config.From, To: config.To}
+		return utilerrors.FromTo{Field: supportDomain.Name, From: config.From, To: config.To}
 	}
 	return nil
 }

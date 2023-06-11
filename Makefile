@@ -3,7 +3,7 @@ name = tl
 .PHONY: build
 build: main.go
 	@echo "**** build start ****"
-	make clean && go build -o $(name) $^
+	go build -o $(name) $^
 	@echo "****  build end  ****"
 
 .PHONY: prod

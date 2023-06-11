@@ -7,6 +7,7 @@ import (
 
 const supportTranslate = `
  Name		Desc			Support Languages
+"it"		"信息技术领域"		"zh->en en->zh"
 "finance"	"金融财经领域"		"zh->en en->zh"
 "machinery"	"机械制造领域"		"zh->en en->zh"
 "senimed"	"生物医药领域"		"zh->en en->zh"
@@ -14,7 +15,7 @@ const supportTranslate = `
 "academic"	"学术论文领域"		"zh->en en->zh"
 "novel"		"网络文学领域"		"zh->en en->zh"
 "aerospace"	"航空航天领域"		"zh->en en->zh"
-"wiki"		"人文社科领域"		"zh->en       "
+"wiki"		"人文社科领域"		"zh->en"
 "news"		"新闻资讯领域"		"zh->en en->zh"
 "contract"	"合同领域"		"zh->en en->zh"
 `
@@ -25,6 +26,7 @@ func NewField() *cobra.Command {
 		Short: "support domains",
 		Long:  "support domains that could be use in 'from' and 'to'",
 		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println("support fields is shown below:")
 			fmt.Print(supportTranslate)
 		},
 		//Example: "tl field",

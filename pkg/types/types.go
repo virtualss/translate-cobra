@@ -36,7 +36,11 @@ func (d *DomainList) Support(domain string) (*Domain, bool) {
 
 func (l *LanguageList) Support(domain *Domain, from, to string) bool {
 	for _, v := range domain.Languages {
-		return *v == Language{from: from, to: to}
+		result := *v == Language{from: from, to: to}
+		if result {
+			return true
+		}
+
 	}
 	return false
 }
@@ -45,8 +49,7 @@ var (
 	ze = &Language{from: "zh", to: "en"}
 	ez = &Language{from: "en", to: "zh"}
 
-	it = &Domain{Name: "it", Desc: "信息技术领域", Languages: []*Language{ze, ez}}
-
+	it        = &Domain{Name: "it", Desc: "信息技术领域", Languages: []*Language{ze, ez}}
 	finance   = &Domain{Name: "finance", Desc: "金融财经领域", Languages: []*Language{ze, ez}}
 	machinery = &Domain{Name: "machinery", Desc: "机械制造领域", Languages: []*Language{ze, ez}}
 	senimed   = &Domain{Name: "senimed", Desc: "生物医药领域", Languages: []*Language{ze, ez}}

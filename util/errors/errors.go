@@ -12,11 +12,12 @@ func (d Domain) Error() string {
 }
 
 type FromTo struct {
+	Field string
 	//error
 	From string
 	To   string
 }
 
 func (f FromTo) Error() string {
-	return fmt.Sprintf("Unupported Origin Language: [%s] or Target Language: [%s],see 'tl field' for help \n", f.From, f.To)
+	return fmt.Sprintf("Filed [%s] unsupport From Language: [%s] to Target Language: [%s] \n", f.Field, f.From, f.To)
 }
